@@ -7,7 +7,7 @@ async function fetchPlanets() {
 } 
 fetchPlanets();
 
-function Filmes() {
+function App() {
   return (
     <div>
       <h1>Filmes</h1>
@@ -17,4 +17,4 @@ function Filmes() {
   );
 }
 
-export default Filmes;
+export default App;
