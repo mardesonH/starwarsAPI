@@ -32,3 +32,66 @@
         margin-top:-50000px;
     }    
 }
+
+#hero{
+    cursor: pointer;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#xwing2 {
+left: -500px;
+}
+
+#falcon{
+    left: -300px;
+    z-index: 2;
+}
+
+#tiefighter{
+    left: -800px;
+    z-index: 2;
+}
+
+#hero:hover #falcon{
+    animation: voando 3s linear forwards;
+}
+
+#hero img{
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
+
+#hero:hover #xwing2{
+    animation: voando 4s linear forwards;
+}
+
+#hero:hover #tiefighter{
+    animation: voando-tye 6s linear forwards;
+    animation-delay: 1s;
+}
+
+@keyframes voando {
+    to {
+        margin-left: 4000px;
+        scale: 5;
+        filter: blur(20);
+    }
+}
+
+@keyframes voando-tye {
+    25%{
+        margin-top: 200px;
+    }
+    50%{
+        margin-top: 20px;
+        scale: 2.5;
+    }
+    75%{
+        margin-top: 200px;
+    }
+    100%{
+        margin-top: 200px;
+        margin-left: 4000px;
+        scale: 3;
+    }
+}

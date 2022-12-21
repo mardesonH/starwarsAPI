@@ -1,7 +1,7 @@
 function Footer(){
 return(
     
-<footer class="pb-2 pt-0 mt-0 fixed inset-x-0 bottom-0 bg-black">
+<footer class="pb-2 pt-0 mt-20 fixed inset-x-0 bottom-0 bg-black">
         <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
         </ul>
     <hr class="my-6 border-white sm:mx-auto dark:border-gray-700 lg:my-8" />

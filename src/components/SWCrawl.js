@@ -1,9 +1,6 @@
-import Crawl from 'react-star-wars-crawl'
-
-// Import the necessary styles, or include them another way with your build process
 import './starwars.css'
 
-function Teste(){
+function SWCrawl(){
 
     return(
         <div id="fundo">
@@ -19,4 +16,4 @@ function Teste(){
 
 }
 
-export default Teste;
+export default SWCrawl;
