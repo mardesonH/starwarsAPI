@@ -13,7 +13,7 @@
     text-align: center;
     position: relative;
     padding-top:0px;
-    animation: autoscroll 1000s 1.5s infinite linear;
+    animation: autoscroll 1000s 2s infinite linear;
 }
 
 #fundo{    
@@ -35,6 +35,7 @@
     cursor: pointer;
     object-fit: cover;
     overflow: hidden;
+    margin: auto;
 }
 
 #xwing2 {
