@@ -6,9 +6,9 @@ import './starwars.css'
 function Hero({titulo, subtitulo}){
 
     return(
-      <div class="mb-[700px] md:mb-[500px]">
-        <ScrollParallax strength={0.05}>
-   <div id="hero" className="bg-yellow-400 p-6 mt-10 mb-90 pb-10 absolute sm:flex ">
+      <div class="">
+        <ScrollParallax strength={0.02}>
+   <div id="hero" className="bg-yellow-400 p-6 mt-10 mb-90 pb-10  sm:flex ">
       <div class="wrapper flex justify-center mb-5">
       
       <img src="https://www.seekpng.com/png/full/11-114257_falcon-falcon-star-war-ships-png.png" id="falcon" width="100" class="absolute ml-0 mt-20"></img>      

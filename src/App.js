@@ -33,20 +33,20 @@ function App() {
     <br/>
 
 
-    <div className=" mt-10 pt-10 mb-5 z-1 bg-slate-200">
+    <div className="  pt-10 mb-5 z-1 bg-slate-200">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold text-white">AsCan - Desafio Front-End</h1>
         <br/>
         <p className="text-2xl text-gray-500">Desafio da trilha de frontend para o programa de estágio AsCan do Instituto Atlântico.</p>
       </div>
     </div>
-    <div className=" mt-10 pt-10 mb-5 z-1 bg-slate-200">
+    <div className="  pt-10 mb-5 z-1 bg-slate-200">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold text-white">AsCan - Desafio Front-End</h1>
         <br/>
         <p className="text-2xl text-gray-500">Desafio da trilha de frontend para o programa de estágio AsCan do Instituto Atlântico.</p>
       </div>
-    </div> <div className=" mt-10 pt-10 mb-5 z-1 bg-slate-200">
+    </div> <div className=" pt-10 mb-5 z-1 bg-slate-200">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold text-white">AsCan - Desafio Front-End</h1>
         <br/>
