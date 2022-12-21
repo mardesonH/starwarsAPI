@@ -6,23 +6,27 @@ import './starwars.css'
 function Hero({titulo, subtitulo}){
 
     return(
-    <div id="hero" className="bg-yellow-400 p-6 mt-10 mb-10 absolute items-center justify-center mx-auto text-center md:flex">
+      <div class="mb-[700px] md:mb-[500px]">
+        <ScrollParallax strength={0.05}>
+   <div id="hero" className="bg-yellow-400 p-6 mt-10 mb-90 pb-10 absolute sm:flex ">
       <div class="wrapper flex justify-center mb-5">
       
       <img src="https://www.seekpng.com/png/full/11-114257_falcon-falcon-star-war-ships-png.png" id="falcon" width="100" class="absolute ml-0 mt-20"></img>      
       <img src={xwing} id="xwing2" width="100" class="absolute ml-0 mt-48 object-center"></img>
 
       <img src="https://wiki.swgoh.help/images/8/84/Unit-Ship-Imperial_TIE_Fighter.png" id="tiefighter" width="100" class="absolute ml-0 mt-20"></img>
-      <img src={deathstar} class="w-48 sm:w-64"></img>
+      <img src={deathstar} class=" object-scale-down w-[50%] sm:w-[70%] lg:w-[100%]"></img>
       
       </div>
       
-      <div className="container mx-auto text-left ml-10">
+      <div className="container text-center sm:ml-10 md:text-left ">
         <h1 className="text-4xl font-bold text-black">{titulo}</h1>
         <br/>
-        <p className="text-2xl text-black md:text-base">{subtitulo}</p>
+        <p className="text-black text-base p-2 md:text-2xl">{subtitulo}</p>
       </div>
     
+    </div>
+    </ScrollParallax>
     </div>
         )
 }
