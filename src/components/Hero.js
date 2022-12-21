@@ -1,6 +1,6 @@
 import { MouseParallax, ScrollParallax } from "react-just-parallax";
-import deathstar from '../deathstar.png';
-import xwing from '../xwing.png';
+import deathstar from '../imgs/deathstar.png';
+import xwing from '../imgs/xwing.png';
 import './starwars.css'
 
 function Hero({titulo, subtitulo}){
