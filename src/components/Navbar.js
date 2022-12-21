@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
@@ -8,7 +9,7 @@ export default function NavBar() {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="javascript:void(0)"><img src='https://logodownload.org/wp-content/uploads/2015/12/star-wars-logo-1-1.png' width={100} className="transform transition duration-500 hover:scale-110 hover:flex justify-center items-center"></img></a>
+                    <Link to="/"><img src='https://logodownload.org/wp-content/uploads/2015/12/star-wars-logo-1-1.png' width={100} className="transform transition duration-500 hover:scale-110 hover:flex justify-center items-center"></img></Link>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -55,7 +56,7 @@ export default function NavBar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                         <li>
-                                <a href="javascript:void(0)">Filmes</a>
+                                <Link to="/filmes">Filmes</Link>
                             </li>
                             <li>
                                 <a href="javascript:void(0)">Personagens</a>
