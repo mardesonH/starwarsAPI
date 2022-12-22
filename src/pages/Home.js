@@ -6,7 +6,6 @@ import ImagemFilmes from '../imgs/star-wars-filmes.jpg';
 import ImagemPersonagens from '../imgs/darth-vader.jfif';
 import ImagemPlanetas from '../imgs/planets.jpg';
 import ImagemEspecies from '../imgs/creatures.webp';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
