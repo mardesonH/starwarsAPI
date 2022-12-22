@@ -1,16 +1,23 @@
 import '../App.css';
-
-async function fetchPlanets() { 
-  const results = await fetch("https://swapi.dev/api/planets/?page=1");
-  const data = await results.json();
-    console.log(data);
-} 
-fetchPlanets();
+import Filme from '../components/Filme';
 
 function Filmes() {
   return (
     <div>
-      <h1>Filmes</h1>
+      <br/>
+      <div className="App">
+            <br/>
+    <div className=" mt-10 pt-10 mb-5 z-1">
+      <div className="container mx-auto text-center">
+        <h1 className="text-4xl font-bold text-white">Filmes</h1>
+        <br/>
+      </div>
+    </div>
+          </div>
+          <div class="items-center container mx-auto flex flex-row flex-wrap">
+          <Filme />
+          <Filme />
+          </div>
 
     </div>
     

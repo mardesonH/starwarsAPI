@@ -6,13 +6,7 @@ import ImagemFilmes from '../imgs/star-wars-filmes.jpg';
 import ImagemPersonagens from '../imgs/darth-vader.jfif';
 import ImagemPlanetas from '../imgs/planets.jpg';
 import ImagemEspecies from '../imgs/creatures.webp';
-
-async function fetchPlanets() { 
-  const results = await fetch("https://swapi.dev/api/planets/?page=1");
-  const data = await results.json();
-    console.log(data);
-} 
-fetchPlanets();
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -34,7 +28,7 @@ function App() {
     <br/>
 
 
-    <BarrasAtalhos titulo={'Filmes'} imagem={ImagemFilmes} rota="#"/>
+    <BarrasAtalhos titulo={'Filmes'} imagem={ImagemFilmes} rota="/filmes"/>
 
     <BarrasAtalhos titulo={'Personagens'} imagem={ImagemPersonagens} rota="#"/>
 
