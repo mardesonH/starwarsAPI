@@ -39,7 +39,7 @@ function Filmes() {
 
       {filmes.map(filme => (
         <Filme key={filme.episode_id} titulo={filme.title} data={filme.release_date} sinopse={filme.opening_crawl} diretor={filme.director} imagem={`https://starwars-visualguide.com/assets/img/films/${filme.episode_id}.jpg`} produtor={filme.producer} personagens={filme.characters} planetas={filme.planets} especies={filme.species}/>
-      ))};
+      ))}
 
       </div>
 

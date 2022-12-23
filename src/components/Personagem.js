@@ -2,79 +2,69 @@ import '../App.css';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, planetas, especies }) {
+function Personagem({ nome, planeta, imagem, nascimento, genero, filmes, especie}) {
 
-    //Listar Personagens
-    const [characterNames, setCharacterNames] = useState([]);
+    //Saber o nome do planeta
+    const [planetName, setPlanetName] = useState('');
 
-    async function getCharacterNames() {
-
-        const names = await Promise.all(personagens.map(getCharacterName));
-        setCharacterNames(names);
+    async function getPlanetName(url) {
+      const response = await fetch(url);
+      const data = await response.json();
+      setPlanetName(data.name);
     }
+  
     useEffect(() => {
-        getCharacterNames();
+      getPlanetName(planeta);
     }, []);
 
-    async function getCharacterName(url) {
+    //Listar Filmes
+    const [filmNames, setFilmNames] = useState([]);
+
+    async function getFilmsNames() {
+
+        const names = await Promise.all(filmes.map(getFilmsName));
+        setFilmNames(names);
+    }
+    useEffect(() => {
+        getFilmsNames();
+    }, []);
+
+    async function getFilmsName(url) {
         try {
             const response = await axios.get(url);
             const data = response.data;
 
-            // Retorna o nome do personagem
-            return data.name;
+            // Retorna o filme
+            return data.title;
         } catch (error) {
             return null;
         }
     }
 
-    //Listar Planetas
-    const [planetNames, setPlanetNames] = useState([]);
-
-    async function getPlanetsNames() {
-
-        const names = await Promise.all(planetas.map(getPlanetsName));
-        setPlanetNames(names);
-    }
-    useEffect(() => {
-        getPlanetsNames();
-    }, []);
-
-    async function getPlanetsName(url) {
-        try {
-            const response = await axios.get(url);
-            const data = response.data;
-
-            // Retorna a espécie
-            return data.name;
-        } catch (error) {
-            return null;
-        }
-    }
-
-    //Listar Espécies
+    
+    //Listar Raça
     const [specieNames, setSpecieNames] = useState([]);
 
-    async function getSpeciesNames() {
+    async function getSpecieNames() {
 
-        const names = await Promise.all(especies.map(getSpeciesName));
+        const names = await Promise.all(especie.map(getSpecieName));
         setSpecieNames(names);
     }
     useEffect(() => {
-        getSpeciesNames();
+        getSpecieNames();
     }, []);
 
-    async function getSpeciesName(url) {
+    async function getSpecieName(url) {
         try {
             const response = await axios.get(url);
             const data = response.data;
 
-            // Retorna a espécie
             return data.name;
         } catch (error) {
             return null;
         }
     }
+
 
     const [showModal, setShowModal] = React.useState(false);
 
@@ -83,13 +73,12 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
 
             <a href="#" onClick={() => setShowModal(true)} id="filme" class=" box-border max-h-[700px] h-100px w-[50%] mb-10 container place-items-center mx-5 flex-col items-center  bg-slate-100 border rounded-lg shadow-md md:flex-row md:max-w-xl sm:w-[50%] md:w-[35%] lg:w-[25%] xl:w-[20%]">
                 <div class="bg-slate-600 box-border rounded-lg">
-                    <img class="relative object-cover rounded-lg rounded-b-none h-[350px] w-[100%]" src={imagem} alt={titulo} />
+                    <img class="relative object-cover rounded-lg rounded-b-none h-[350px] w-[100%]" src={imagem} alt={nome} />
                 </div>
                 <div class="flex-col justify-between p-4">
-                    <span class="mt-2 flex align-middle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg><h5 class="ml-1 uppercase mb-2 text-xl font-bold text-gray-900 dark:text-white">{titulo}</h5></span>
-                    <span class="flex"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><h5 class="ml-1">{data}</h5></span>
+                    <span class="mt-2 flex align-middle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg><h5 class="ml-1 uppercase mb-2 text-xl font-bold text-gray-900 dark:text-white">{nome}</h5></span>
+                    <span class="flex"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h5 class="ml-1">{planetName}</h5></span>
                     <br />
-                    <p class="truncate mb-3 font-normal text-[#926207] dark:text-gray-400">{sinopse}</p>
                 </div>
             </a>
 
@@ -98,13 +87,13 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
                     <div onClick={() => setShowModal(false)}>
                         <div
                             className="align-middle justify-center items-center flex overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none shadow-xl focus:outline-none" >
-                            <div className=" overflow-y-scroll h-[60%] w-[70%] relative my-6 mx-auto">
+                            <div className=" md:overflow-y-scroll h-[60%] w-[70%] relative my-6 mx-auto">
                                 {/*content*/}
                                 <div className=" border-0 rounded-r-none rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                     {/*header*/}
                                     <div className=" flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                         <h3 className="text-3xl font-semibold uppercase">
-                                            {titulo}
+                                            {nome}
                                         </h3>
                                         <button
                                             className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -116,43 +105,27 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
                                     </div>
                                     {/*body*/}
                                     <div className=" flex relative p-6 flex-auto">
-                                        <img class="object-cover h-[50%] w-[12%]" src={imagem} alt={titulo} />
+                                        <img class="object-cover h-[50%] w-[12%]" src={imagem} alt={nome} />
                                         <p className="mx-4 text-slate-500 text-lg leading-relaxed">
-                                            <p><strong>Data de criação: </strong>{data}</p>
-                                            <p><strong>Diretor: </strong>{diretor}</p>
-                                            <p><strong>Produção: </strong>{produtor}</p>
-                                            <p><strong>Sinopse: </strong>{sinopse}</p>
+                                            <p><strong>Planeta natal: </strong>{planetName}</p>
+                                            <p><strong>Data de nascimento: </strong>{nascimento}</p>
+                                            <p><strong>Gênero: </strong>{genero}</p>
+                                            <p><strong>Raça: </strong>{specieNames.map((name) => (
+                                                <li key={name}>{name}</li>
+                                            ))}</p>
                                         </p>
                                     </div>
                                     <div class="bg-slate-500 my-5 px-6 py-5">
-                                        <p><strong>Personagens: </strong></p>
+                                        <p><strong>Filmes: </strong></p>
                                         <hr />
                                         <ul>
-                                            {characterNames.map((name) => (
+                                        {filmNames.map((name) => (
                                                 <li key={name}>{name}</li>
                                             ))}
 
                                         </ul>
                                     </div>
-                                    <div class="bg-slate-500 my-5 px-6 py-5">
-                                        <p><strong>Planetas: </strong></p>
-                                        <hr />
-                                        <ul>
-                                        {planetNames.map((name) => (
-                                                <li key={name}>{name}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div class="bg-slate-500 my-5 px-6 py-5">
-                                        <p><strong>Espécies: </strong></p>
-                                        <hr />
-                                        <ul>
-                                        {specieNames.map((name) => (
-                                                <li key={name}>{name}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
+                                    
 
                                     {/*footer*/}
                                     <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -179,4 +152,4 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
     );
 }
 
-export default Filme;
+export default Personagem;
