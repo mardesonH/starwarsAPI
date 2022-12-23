@@ -1,0 +1,80 @@
+#target{
+    position:absolute;
+    top:0px;
+    left:0;
+    right:0;
+    bottom: 0px;
+    overflow:hidden;
+    font-size:30px;
+    text-align:center;
+    font-family:sans-serif;
+}
+#target>div{
+    text-align: center;
+    position: relative;
+    padding-top:0px;
+    animation: autoscroll 1000s 2s infinite linear;
+}
+
+#fundo{    
+    margin-left: 15%;
+    margin-bottom: 50px;;
+    width: 70%;
+    height: 250px;
+    color: yellow;
+    transform-origin:50% 100%;
+    transform:perspective(300px) rotateX(20deg);
+}
+
+@keyframes autoscroll{
+    to{
+        margin-top:-50000px;
+    }    
+}
+
+#hero{
+    width: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    overflow: hidden;
+    margin: auto;
+}
+
+#xwing2 {
+left: -500px;
+}
+
+#falcon{
+    left: -300px;
+    z-index: 2;
+}
+
+#tiefighter{
+    left: -800px;
+    z-index: 2;
+}
+
+#hero:hover #falcon{
+    animation: voando 3s linear forwards;
+}
+
+#hero img{
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
+
+#hero:hover #xwing2{
+    animation: voando 4s linear forwards;
+}
+
+#hero:hover #tiefighter{
+    animation: voando 4s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes voando {
+    to {
+        margin-left: 4000px;
+        scale: 5;
+        filter: blur(20);
+    }
+}
