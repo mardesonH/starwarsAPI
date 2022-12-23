@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.a8ad7e96.css",
-    "main.js": "/static/js/main.868141f6.js",
-    "static/js/787.0f2ee10c.chunk.js": "/static/js/787.0f2ee10c.chunk.js",
-    "static/media/star-wars-filmes.jpg": "/static/media/star-wars-filmes.e3c7af92706bbbbe67ad.jpg",
-    "static/media/deathstar.png": "/static/media/deathstar.c64bd88a3acf00f0cd86.png",
-    "static/media/darth-vader.jfif": "/static/media/darth-vader.57f945074582f54f4db6.jfif",
-    "static/media/xwing.png": "/static/media/xwing.202e85fe7642f894c6d2.png",
-    "static/media/creatures.webp": "/static/media/creatures.72f1ea25841dfdee540d.webp",
-    "static/media/planets.jpg": "/static/media/planets.3661557be2d62b6fbbd8.jpg",
-    "index.html": "/index.html",
-    "main.a8ad7e96.css.map": "/static/css/main.a8ad7e96.css.map",
-    "main.868141f6.js.map": "/static/js/main.868141f6.js.map",
-    "787.0f2ee10c.chunk.js.map": "/static/js/787.0f2ee10c.chunk.js.map"
+    "main.css": "/starwarsAPI/static/css/main.a8ad7e96.css",
+    "main.js": "/starwarsAPI/static/js/main.9bdc3902.js",
+    "static/js/787.0f2ee10c.chunk.js": "/starwarsAPI/static/js/787.0f2ee10c.chunk.js",
+    "static/media/star-wars-filmes.jpg": "/starwarsAPI/static/media/star-wars-filmes.e3c7af92706bbbbe67ad.jpg",
+    "static/media/deathstar.png": "/starwarsAPI/static/media/deathstar.c64bd88a3acf00f0cd86.png",
+    "static/media/darth-vader.jfif": "/starwarsAPI/static/media/darth-vader.57f945074582f54f4db6.jfif",
+    "static/media/xwing.png": "/starwarsAPI/static/media/xwing.202e85fe7642f894c6d2.png",
+    "static/media/creatures.webp": "/starwarsAPI/static/media/creatures.72f1ea25841dfdee540d.webp",
+    "static/media/planets.jpg": "/starwarsAPI/static/media/planets.3661557be2d62b6fbbd8.jpg",
+    "index.html": "/starwarsAPI/index.html",
+    "main.a8ad7e96.css.map": "/starwarsAPI/static/css/main.a8ad7e96.css.map",
+    "main.9bdc3902.js.map": "/starwarsAPI/static/js/main.9bdc3902.js.map",
+    "787.0f2ee10c.chunk.js.map": "/starwarsAPI/static/js/787.0f2ee10c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8ad7e96.css",
-    "static/js/main.868141f6.js"
+    "static/js/main.9bdc3902.js"
   ]
 }
