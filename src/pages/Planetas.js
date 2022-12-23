@@ -1,11 +1,11 @@
 import '../App.css'
-import Personagem from '../components/Personagem';
+import Planeta from '../components/Planeta';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const getAllCharacters = async () => {
   let allCharacters = [];
-  let nextPage = 'https://swapi.dev/api/people/';
+  let nextPage = 'https://swapi.dev/api/planets/';
   while (nextPage) {
     const response = await axios.get(nextPage);
     const { data } = response;
@@ -15,7 +15,7 @@ const getAllCharacters = async () => {
   return allCharacters;
 };
 
-function Personagens () {
+function Planetas () {
 
   const [characters, setCharacters] = useState([]);
 
@@ -44,7 +44,7 @@ function Personagens () {
 
 
       {characters.map((char, index) => (
-        <Personagem nome={char.name} imagem={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} planeta={char.homeworld} nascimento={char.birth_year} genero={char.gender} filmes={char.films} especie={char.species}/>
+        <Planeta nome={char.name} imagem={`https://starwars-visualguide.com/assets/img/planets/${index + 1}.jpg`} diametro={char.diameter} populacao={char.population} genero="teste" filmes={char.films} especie={char.residents}/>
       ))}
 
       </div>
@@ -54,4 +54,4 @@ function Personagens () {
   );
 }
 
-export default Personagens;
+export default Planetas;
