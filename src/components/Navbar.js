@@ -65,7 +65,7 @@ export default function NavBar() {
                             <Link to="/planetas">Planetas</Link>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Espécies</a>
+                            <Link to="/especies">Espécies</Link>
                             </li>
                         </ul>
                     </div>
