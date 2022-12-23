@@ -15,12 +15,6 @@ const getAllCharacters = async () => {
   return allCharacters;
 };
 
-const getPlanet = async (planetUrl) => {
-  const response = await axios.get(planetUrl);
-  const { data } = response;
-  return data;
-};
-
 function Personagens () {
 
   const [characters, setCharacters] = useState([]);
@@ -50,8 +44,8 @@ function Personagens () {
 
 
       {characters.map((char, index) => (
-        <Personagem nome={char.name} imagem={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} planeta="" nascimento={char.birth_year} genero={char.gender}/>
-      ))};
+        <Personagem nome={char.name} imagem={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} planeta={char.homeworld} nascimento={char.birth_year} genero={char.gender} filmes={char.films} especie={char.species}/>
+      ))}
 
       </div>
 

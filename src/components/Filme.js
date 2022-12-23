@@ -4,42 +4,77 @@ import React, { useState, useEffect } from 'react';
 
 function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, planetas, especies }) {
 
-    //Listar Chars
-    const [chars, setChars] = useState([]);
+    //Listar Personagens
+    const [characterNames, setCharacterNames] = useState([]);
+
+    async function getCharacterNames() {
+
+        const names = await Promise.all(personagens.map(getCharacterName));
+        setCharacterNames(names);
+    }
     useEffect(() => {
-        async function fetchData() {
-            for (const link of personagens) {
-                const response = await axios.get(link);
-                setChars(prevChars => [...prevChars, response.data]);
-            }
-        }
-        fetchData();
+        getCharacterNames();
     }, []);
+
+    async function getCharacterName(url) {
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
+
+            // Retorna o nome do personagem
+            return data.name;
+        } catch (error) {
+            return null;
+        }
+    }
 
     //Listar Planetas
-    const [planets, setPlanets] = useState([]);
+    const [planetNames, setPlanetNames] = useState([]);
+
+    async function getPlanetsNames() {
+
+        const names = await Promise.all(planetas.map(getPlanetsName));
+        setPlanetNames(names);
+    }
     useEffect(() => {
-        async function fetchData() {
-            for (const link of planetas) {
-                const response = await axios.get(link);
-                setPlanets(prevPlanets => [...prevPlanets, response.data]);
-            }
-        }
-        fetchData();
+        getPlanetsNames();
     }, []);
 
-     //Listar Espéciess
-     const [species, setSpecies] = useState([]);
-     useEffect(() => {
-         async function fetchData() {
-             for (const link of especies) {
-                 const response = await axios.get(link);
-                 setSpecies(prevSpecies => [...prevSpecies, response.data]);
-             }
-         }
-         fetchData();
-     }, []);
+    async function getPlanetsName(url) {
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
 
+            // Retorna a espécie
+            return data.name;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    //Listar Espécies
+    const [specieNames, setSpecieNames] = useState([]);
+
+    async function getSpeciesNames() {
+
+        const names = await Promise.all(especies.map(getSpeciesName));
+        setSpecieNames(names);
+    }
+    useEffect(() => {
+        getSpeciesNames();
+    }, []);
+
+    async function getSpeciesName(url) {
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
+
+            // Retorna a espécie
+            return data.name;
+        } catch (error) {
+            return null;
+        }
+    }
 
     const [showModal, setShowModal] = React.useState(false);
 
@@ -93,8 +128,8 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
                                         <p><strong>Personagens: </strong></p>
                                         <hr />
                                         <ul>
-                                            {chars.map(char => (
-                                                <li key={char.id}>{char.name}</li>
+                                            {characterNames.map((name) => (
+                                                <li key={name}>{name}</li>
                                             ))}
 
                                         </ul>
@@ -103,8 +138,8 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
                                         <p><strong>Planetas: </strong></p>
                                         <hr />
                                         <ul>
-                                        {planets.map(planeta => (
-                                                <li key={planeta.id}>{planeta.name}</li>
+                                        {planetNames.map((name) => (
+                                                <li key={name}>{name}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -112,8 +147,8 @@ function Filme({ titulo, data, sinopse, imagem, diretor, produtor, personagens, 
                                         <p><strong>Espécies: </strong></p>
                                         <hr />
                                         <ul>
-                                        {species.map(especie => (
-                                                <li key={especie.id}>{especie.name}</li>
+                                        {specieNames.map((name) => (
+                                                <li key={name}>{name}</li>
                                             ))}
                                         </ul>
                                     </div>
