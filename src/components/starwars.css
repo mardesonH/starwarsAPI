@@ -18,12 +18,14 @@
 
 #fundo{    
     margin-left: 15%;
+    margin-bottom: 50px;;
     width: 70%;
-    height: 200px;
+    height: 250px;
     color: yellow;
     transform-origin:50% 100%;
     transform:perspective(300px) rotateX(20deg);
 }
+
 @keyframes autoscroll{
     to{
         margin-top:-50000px;
