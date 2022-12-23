@@ -29,16 +29,13 @@ function App() {
 
     <BarrasAtalhos titulo={'Filmes'} imagem={ImagemFilmes} rota="/filmes"/>
 
-    <BarrasAtalhos titulo={'Personagens'} imagem={ImagemPersonagens} rota="#"/>
+    <BarrasAtalhos titulo={'Personagens'} imagem={ImagemPersonagens} rota="/personagens"/>
 
-    <BarrasAtalhos titulo={'Planetas'} imagem={ImagemPlanetas} rota="#"/>
+    <BarrasAtalhos titulo={'Planetas'} imagem={ImagemPlanetas} rota="/planetas"/>
 
-    <BarrasAtalhos titulo={'Espécies'} imagem={ImagemEspecies} rota="#"/>
+    <BarrasAtalhos titulo={'Espécies'} imagem={ImagemEspecies} rota="/especies"/>
 
      
-
-    
-    
 
     </div>
     

@@ -2,7 +2,7 @@ import '../App.css';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
+function Especie({ nome, classificacao, imagem, lingua, filmes, planeta, cor}) {
 
 
     //Listar Filmes
@@ -29,28 +29,18 @@ function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
         }
     }
 
-    //Listar Raça
-    const [specieNames, setSpecieNames] = useState([]);
+  //Saber o nome do planeta
+  const [planetName, setPlanetName] = useState('');
 
-    async function getSpecieNames() {
+  async function getPlanetName(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    setPlanetName(data.name);
+  }
 
-        const names = await Promise.all(especie.map(getSpecieName));
-        setSpecieNames(names);
-    }
-    useEffect(() => {
-        getSpecieNames();
-    }, []);
-
-    async function getSpecieName(url) {
-        try {
-            const response = await axios.get(url);
-            const data = response.data;
-
-            return data.name;
-        } catch (error) {
-            return null;
-        }
-    }
+  useEffect(() => {
+    getPlanetName(planeta);
+  }, []);
 
 
     const [showModal, setShowModal] = React.useState(false);
@@ -63,7 +53,7 @@ function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
                     <img id="foto" class="relative object-cover rounded-lg rounded-b-none h-[350px] w-[100%]" src={imagem} alt={nome}/>
                 </div>
                 <div class="flex-col justify-between p-4">
-                    <span class="mt-2 flex align-middle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h5 class="ml-1 uppercase mb-2 text-xl font-bold text-gray-900 dark:text-white">{nome}</h5></span>
+                    <span class="mt-2 flex align-middle"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg><h5 class="ml-1 uppercase mb-2 text-xl font-bold text-gray-900 dark:text-white">{nome}</h5></span>
                     <br />
                 </div>
             </a>
@@ -93,8 +83,11 @@ function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
                                     <div className=" flex relative p-6 flex-auto">
                                         <img class="object-cover h-[50%] w-[12%]" src={imagem} alt={nome} />
                                         <p className="mx-4 text-slate-500 text-lg leading-relaxed">
-                                            <p><strong>Diâmetro: </strong>{diametro}</p>
-                                            <p><strong>População: </strong>{populacao}</p>
+                                            <p><strong>Classificação: </strong>{classificacao}</p>
+                                            <p><strong>Linguagem: </strong>{lingua}</p>
+                                            <p><strong>Cor: </strong>{cor}</p>
+                                            <p><strong>Planeta natal: </strong>{planetName}</p>
+                                            
                                         </p>
                                     </div>
                                     <div class="bg-slate-500 my-5 px-6 py-5">
@@ -102,16 +95,6 @@ function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
                                         <hr />
                                         <ul>
                                         {filmNames.map((name) => (
-                                                <li key={name}>{name}</li>
-                                            ))}
-
-                                        </ul>
-                                    </div>
-                                    <div class="bg-slate-500 my-5 px-6 py-5">
-                                        <p><strong>Habitantes: </strong></p>
-                                        <hr />
-                                        <ul>
-                                        {specieNames.map((name) => (
                                                 <li key={name}>{name}</li>
                                             ))}
 
@@ -144,4 +127,4 @@ function Planeta({ nome, diametro, imagem, populacao, filmes, especie}) {
     );
 }
 
-export default Planeta;
+export default Especie;
