@@ -38,9 +38,8 @@ Refatoração; diminuir o tempo das requisições; vincular com uma base de imag
 
 
 ## Screenshots
+![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/main/src/imgs/ss/1.png)
 
-![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/especies/src/imgs/ss/1.png)
+![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/main/src/imgs/ss/2.png)
 
-![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/especies/src/imgs/ss/2.png)
-
-![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/especies/src/imgs/ss/3.png)
+![Screenshot](https://raw.githubusercontent.com/mardesonH/starwarsAPI/main/src/imgs/ss/3.png)
