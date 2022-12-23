@@ -1,28 +1,28 @@
 import '../App.css'
-import Planeta from '../components/Planeta';
+import Especie from '../components/Especie';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const getAllCharacters = async () => {
-  let allCharacters = [];
-  let nextPage = 'https://swapi.dev/api/planets/';
+const getAllSpecies = async () => {
+  let allSpecies = [];
+  let nextPage = 'https://swapi.dev/api/species/';
   while (nextPage) {
     const response = await axios.get(nextPage);
     const { data } = response;
-    allCharacters = allCharacters.concat(data.results);
+    allSpecies = allSpecies.concat(data.results);
     nextPage = data.next;
   }
-  return allCharacters;
+  return allSpecies;
 };
 
 function Planetas () {
 
-  const [characters, setCharacters] = useState([]);
+  const [species, setSpecies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const characters = await getAllCharacters();
-      setCharacters(characters);
+      const species = await getAllSpecies();
+      setSpecies(species);
     };
     fetchData();
   }, []);
@@ -43,8 +43,8 @@ function Planetas () {
       <div class="justify-center container mx-auto flex flex-row flex-wrap align-top items-stretch">
 
 
-      {characters.map((char, index) => (
-        <Planeta nome={char.name} imagem={`https://starwars-visualguide.com/assets/img/planets/${index + 1}.jpg`} diametro={char.diameter} populacao={char.population} genero="teste" filmes={char.films} especie={char.residents}/>
+      {species.map((specie, index) => (
+        <Especie nome={specie.name} imagem={`https://starwars-visualguide.com/assets/img/species/${index + 1}.jpg`} classificacao={specie.classification} lingua={specie.language} cor={specie.skin_colors} filmes={specie.films} especie="teste" planeta={specie.homeworld}/>
       ))}
 
       </div>
